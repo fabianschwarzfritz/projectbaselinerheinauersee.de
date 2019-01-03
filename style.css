@@ -1,0 +1,118 @@
+﻿/* 
+colors:
+
+Vorgegeben:
+blue: #3882c0
+green: #86b654
+
+Selbst hinzugefügt:
+weiß: #fff
+light-grey: #ddd
+text-schwarz: #333
+footer-link-hover: #eee
+
+*/
+
+html, body {
+	height: 100%;
+	width: 100%;
+	color: #333;
+}
+
+h1, h2, h3, h4, h5 {
+	color: #3882c0;
+}
+
+.navbar {
+	background-color: #ddd;
+	border-bottom: 5px solid #86b654;
+}
+
+#home {
+	background: url(pb/lake.jpg) no-repeat center center fixed;
+	display: table;
+	height: 50%;
+	position: relative;
+	width: 100%;
+	background-size: cover;
+}
+
+.landing-text {
+	overflow: hidden;
+	text-align: center;
+	vertical-align: middle;
+}
+.landing-text h1 {
+	color: #3882c0;
+	font-size: 5em;
+}
+.landing-text h3{
+	color: #86b654;
+	font-size: 3em;
+}
+.landing-text img {
+	padding-top: 100px;
+	width: 700px;
+	/* content:url("pb/logo_old_hans.png") */
+}
+
+.padding {
+	margin: 80px 0 0 0;
+}
+.padding img {
+	width: 100%;
+}
+
+.rowWithFullWidth {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+#intro img {
+	width: 350px;
+	content:url("pb/f2.jpg")
+}
+
+#fixed {
+	background: url(img/background.jpg) no-repeat center fixed;
+	display: table;
+	height: 60%;
+	width: 100%;
+	position: relative;
+	background-size: cover;
+}
+
+footer {
+	width: 100%;
+	background-color: #86b654;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	color: #fff;
+}
+
+footer h3, h4 {
+	color: #fff;
+}
+
+footer a {
+	text-decoration: underline;
+	color: #fff;
+}
+footer a:hover {
+	color: #eee;
+}
+
+.fa {
+	padding: 15px;
+	font-size: 25px;
+	color: #fff;
+	text-decoration: none;
+}
+.fa:hover {
+	color: #eee;
+	text-decoration: none;
+}
+
+#impressum {
+	margin-top: 85px;
+}
