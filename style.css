@@ -50,18 +50,10 @@ h1, h2, h3, h4, h5 {
 	text-align: center;
 	vertical-align: middle;
 }
-.landing-text h1 {
-	color: #3882c0;
-	font-size: 5em;
-}
-.landing-text h3{
-	color: #86b654;
-	font-size: 3em;
-}
 .landing-text img {
 	padding-top: 100px;
 	width: 700px;
-	/* content:url("pb/logo_old_hans.png") */
+	content:url("pb/logo.png")
 }
 
 .padding {
