@@ -116,3 +116,14 @@ footer a:hover {
 #impressum {
 	margin-top: 85px;
 }
+
+/*
+
+Measurement graph d3 colors
+
+*/
+.line {
+	fill: none;
+	stroke: steelblue;
+	stroke-width: 2px;
+}
