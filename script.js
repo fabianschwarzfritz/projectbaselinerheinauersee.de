@@ -55,5 +55,10 @@ $(document).ready(function() {
         // Add the Y Axis
         svg.append("g")
             .call(d3.axisLeft(y));
+
+        // Legend
+        svg.append("circle").attr("cx", 30).attr("cy", 0).attr("r", 6).style("fill", "#3882c0")
+        svg.append("text").attr("x", 50).attr("y", 0).text("Temperature (°C)").style("font-size", "15px").attr("alignment-baseline","middle")
+
     });
 });
