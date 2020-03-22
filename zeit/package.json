@@ -1,0 +1,17 @@
+{
+  "name": "zeit",
+  "version": "1.0.0",
+  "description": "Project Baseline Data",
+  "main": "api/index.js",
+  "dependencies": {
+    "async": "^3.2.0",
+    "reqeust": "^2.81.1",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fabian Schwarz-Fritz",
+  "license": "MIT"
+}

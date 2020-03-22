@@ -1,0 +1,10 @@
+/*
+
+Measurement graph d3 colors
+
+*/
+.line {
+	fill: none;
+	stroke: #3882c0;
+	stroke-width: 2px;
+}
