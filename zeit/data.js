@@ -24,35 +24,42 @@ $(document).ready(function() {
     d3.json("/api", function(err, json) {
         if (err) throw err;
 
-        var data = json["data"];
+        function prepareData(json, key) {
+            data = json["data"][key];
+            data.forEach(element => {
+                element.time = d3.isoParse(element.time);
+                element.value = parseInt(element.value);
+            });
+            return data;
+        }
 
-        data.forEach(element => {
-            element.time = d3.isoParse(element.time);
-            element.value = parseInt(element.value);
-        });
+        function drawData(data, type) {
+            x.domain(d3.extent(data, function(d) { return d.time; }));
+            y.domain([0, d3.max(data, function(d) { return d.value; })]);
+            svg.append("path")
+                .data([data])
+                .attr("class", "line " + type) // Add both classes here for styling
+                .attr("d", valueline);
+        }
+        function drawAxis() {
+            svg.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x));
+            svg.append("g")
+                .call(d3.axisLeft(y));
+        }
+        function drawLegend(measurement, margin) {
+            var topMargin = (margin === undefined) ? 0 : margin
+            svg.append("circle").attr("cx", 30).attr("cy", topMargin).attr("r", 6).attr("class", measurement+"Fill")
+            svg.append("text").attr("x", 50).attr("y", topMargin).text(measurement).style("font-size", "15px").attr("alignment-baseline","middle")
+        }
 
-        // Scale the range of the data
-        x.domain(d3.extent(data, function(d) { return d.time; }));
-        y.domain([0, d3.max(data, function(d) { return d.value; })]);
-
-        // Add the valueline path.
-        svg.append("path")
-            .data([data])
-            .attr("class", "line")
-            .attr("d", valueline);
-
-        // Add the X Axis
-        svg.append("g")
-            .attr("transform", "translate(0," + height + ")")
-            .call(d3.axisBottom(x));
-
-        // Add the Y Axis
-        svg.append("g")
-            .call(d3.axisLeft(y));
-
-        // Legend
-        svg.append("circle").attr("cx", 30).attr("cy", 0).attr("r", 6).style("fill", "#3882c0")
-        svg.append("text").attr("x", 50).attr("y", 0).text("Temperature (°C)").style("font-size", "15px").attr("alignment-baseline","middle")
-
+        drawAxis();
+        var temperature = prepareData(json, "temperature");
+        drawData(temperature, "temperature");
+        drawLegend("temperature");
+        var visibility = prepareData(json, "visibility");
+        drawData(visibility, "visibility");
+        drawLegend("visibility", 20);
     });
 });

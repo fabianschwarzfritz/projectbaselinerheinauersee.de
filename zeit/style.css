@@ -8,3 +8,15 @@ Measurement graph d3 colors
 	stroke: #3882c0;
 	stroke-width: 2px;
 }
+.temperature {
+	stroke: #3882c0;
+}
+.temperatureFill {
+	fill: #3882c0;
+}
+.visibility {
+	stroke: #86b654;
+}
+.visibilityFill {
+	fill: #86b654;
+}

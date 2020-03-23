@@ -23,7 +23,11 @@ module.exports = (req, res) => {
                 }
                 const json = JSON.parse(body)
                 const temperature = json["temperature"]["11"];
-                callback(null, temperature);
+                const visibility = json["visibility"]["11"];
+                callback(null, {
+                    temperature: temperature,
+                    visibility: visibility,
+                });
             })
         }
     }, (err, results) => {
