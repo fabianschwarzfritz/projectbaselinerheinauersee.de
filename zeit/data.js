@@ -41,10 +41,11 @@ $(document).ready(function() {
             .attr("class", "line temperature")
             .attr("d", valuelineTemperature);
         svg.append("g")
+            .attr("class", "temperature")
             .call(d3.axisLeft(yTemperature));
         svg.append("circle").attr("cx", 40).attr("cy", 20).attr("r", 6).attr("class", "temperatureFill")
-        svg.append("text").attr("x", 50).attr("y", 20).text("Temperature (C)").style("font-size", "15px").attr("alignment-baseline", "middle")
-        svg.append("text").attr("transform", "translate(0,  "  + (height/2) + ")").style("text-anchor", "middle").text("Temperature");
+        svg.append("text").attr("x", 50).attr("y", 20).text("Temperature (celsius)").style("font-size", "15px").attr("alignment-baseline", "middle")
+        svg.append("text").attr("transform", "translate(15,  "  + (height/2) + ")rotate(-90)").style("text-anchor", "middle").text("Temperature");
 
         dataVisibility = json["data"]["visibility"];
         dataVisibility.forEach(element => {
@@ -59,15 +60,16 @@ $(document).ready(function() {
             .attr("d", valuelineVisibility);
         svg.append("g")
             .attr("transform", "translate( " + width + ", 0 )") // Move the line to the right side.
+            .attr("class", "visibility")
             .call(d3.axisRight(yVisibility));
         svg.append("circle").attr("cx", 40).attr("cy", 50).attr("r", 6).attr("class", "visibilityFill")
-        svg.append("text").attr("x", 50).attr("y", 50).text("Visibility (C)").style("font-size", "15px").attr("alignment-baseline", "middle")
-        svg.append("text").attr("transform", "translate(" + (width) + " ,  "  + (height/2) + ")").style("text-anchor", "middle").text("Visibility");
+        svg.append("text").attr("x", 50).attr("y", 50).text("Visibility (meters)").style("font-size", "15px").attr("alignment-baseline", "middle")
+        svg.append("text").attr("transform", "translate(" + (width-15) + " ,  "  + (height/2) + ")rotate(+90)").style("text-anchor", "middle").text("Visibility");
 
         svg.append("g")
             .attr("transform", "translate(0," + height + ")")
             .call(d3.axisBottom(x).tickFormat(d3.timeFormat("%Y %m %d")));
-        svg.append("text").attr("transform", "translate(" + (width/2) + " ," + (height + margin.top + 20) + ")").style("text-anchor", "middle").text("Date");
+        svg.append("text").attr("transform", "translate(" + (width/2) + " ," + (height + margin.top + 20) + ")").style("text-anchor", "middle").text("Day of Measurement");
 
 
     });
