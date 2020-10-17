@@ -32,11 +32,13 @@ module.exports = (req, res) => {
         }
     }, (err, results) => {
         if (err) {
-            res.send("Error fetching data from database");
+            res.writeHead(500, {"Content-Type": "application/json"});
+            const errorResponseBody = { "errorMessage": "Error fetching data from database"}
+            res.end(JSON.stringify(errorResponseBody));
             return;
         }
+
         res.writeHead(200, {"Content-Type": "application/json"});
-        console.log(results);
         res.end(JSON.stringify(results));
     });
 }
